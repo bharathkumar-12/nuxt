@@ -218,7 +218,7 @@ Keyed state created using `useAsyncData` can be retrieved across your Nuxt appli
   - `pending`: the request is in progress
   - `success`: the request has completed successfully
   - `error`: the request has failed
-- `pending`: a `Ref<boolean>` that is `true` while the request is in progress (that is, while `status.value === 'pending'`).
+- `pending`: a `Ref<boolean>` that is `true` while data has not yet been resolved. By default this is a computed alias of `status.value === 'pending'`. When [`experimental.pendingWhenIdle`](/docs/4.x/guide/going-further/experimental-features#pendingwhenidle) is enabled, `pending` is also `true` when `status` is `idle` and no data has been fetched yet.
 - `clear`: a function that can be used to set `data` to `undefined` (or the value of `options.default()` if provided), set `error` to `undefined`, set `status` to `idle`, and mark any currently pending requests as cancelled.
 
 By default, Nuxt waits until a `refresh` is finished before it can be executed again.
